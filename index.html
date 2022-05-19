@@ -1,1 +1,61 @@
-hey
+<!DOCTYPE html>
+<html>
+<title>Sahil Shah's Debt</title>
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200&family=Josefin+Sans:ital@1&display=swap" rel="stylesheet">
+
+<style type="text/css">
+p{
+    font-size: 40px;
+    color: #252f9c;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    padding: 0px 0px 0px 0px;
+    margin: 40px;
+}
+p1{
+   font-size: 65px;
+   
+   
+}
+html{
+  font-size: 60px;
+  text-align: center;
+  color: #252f9c;
+  font-family: 'Assistant', sans-serif;
+}
+body {background-color: #cfe5ff;}
+</style>
+</head>
+<body>
+<p>Sahil Shah owes me:</p>
+<p><div id="current_value"></p>
+<script>
+function parseDate(str) {
+    var mdy = str.split('/');
+    return new Date(mdy[2], mdy[0]-1, mdy[1]);
+}
+
+function datediff(first, second) {
+    return Math.round((second-first)/(1000*60*60*24));
+}
+function formatMoney(number) {
+  return number.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+}
+
+date = new Date();
+year = date.getFullYear();
+month = date.getMonth() + 1;
+day = date.getDate();
+banana = datediff(parseDate("5/16/2022"), parseDate(month + "/" + day + "/" + year));
+money = 6*Math.pow(1.1,banana);
+finalvalue=formatMoney(money);
+document.getElementById("current_value").innerHTML = finalvalue;
+</script>
+</body>
+</html>
